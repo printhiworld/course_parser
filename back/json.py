@@ -18,16 +18,22 @@ class JobDataJSON(JobData):
             json.dump(dict, file, ensure_ascii=False, indent=4)
 
     def delete_job(self, job_id):
+        """удаляет вакансии по id 
+        job_id(int) -> None"""
         data = self.read_data()
         data = [job for job in data if job.get('id') != job_id]
         self.write_data(data)
 
     def add_job(self, job_dict):
+        """создает вакансию 
+        job_dict(dict) -> None"""
         dict = self.read_data()
         dict.append(job_dict)
         self.write_data(dict)
 
     def get_job(self, filters):
+        """возвращает вакансии и может их фильтровать
+        filters(str) -> list"""
         data = self.read_data()
         if not filters:
             return data
