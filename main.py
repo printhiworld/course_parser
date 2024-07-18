@@ -4,9 +4,9 @@ from back.super_job import SuperJob
 
 
 def interaction():
-    a = HHJob()
-    b = SuperJob()
-    c = JobDataJSON()
+    hh = HHJob()
+    super = SuperJob()
+    json_d = JobDataJSON()
     while True:
         print('1) Посмотреть вакансии на hh')
         print('2) Посмотреть вакансии на super job')
@@ -16,22 +16,22 @@ def interaction():
         print('Ведите любой символ чтобы выйти')
         action = input()
         if action == '1':
-            d = a.get_vacancies()
-            for i in d:
-                print(i)
+            vacancies = hh.get_vacancies()
+            for vacancy in vacancies:
+                print(vacancy)
         elif action == '2':
-            d = b.get_vacancies()
-            for i in d:
-                print(i)
+            vacancies = super.get_vacancies()
+            for vacancy in vacancies:
+                print(vacancy)
         elif action == '5':
             print('Введите ключевые значения для поиска')
             filter = input()
-            d = c.get_job(filter)
-            for i in d:
-                print(i)
+            vacancies = json_d.get_job(filter)
+            for vacancy in vacancies:
+                print(vacancy)
         elif action == '4':
             idi = input('id удаляемой вакансии')
-            c.delete_job(idi)
+            json_d.delete_job(idi)
         elif action == '3':
             id = input('id вакансии')
             name = input('название')
@@ -39,7 +39,7 @@ def interaction():
             desc = input('описание ')
             url = input('ссылка')
             dict = {'id': id, 'name' : name, 'salary': salary, 'desc': desc, 'url': url}
-            c.add_job(dict)
+            json_d.add_job(dict)
         else:
             break
 
