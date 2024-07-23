@@ -9,6 +9,7 @@ class HHJob(JobAPI):
     url = "https://api.hh.ru"
 
     def get_vacancies(self):
+        """показывает вакансии на hh"""
         vacancies = []
         response = requests.get(f'{self.url}/vacancies').json()['items']
         for i in response:
