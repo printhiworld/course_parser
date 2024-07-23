@@ -29,13 +29,12 @@ class Vacancy:
 class JobData(ABC):
 
     @abstractmethod
-    def add_job(self, job_data):
+    def add_job(self, job_data: dict):
         pass
 
     def get_jobs(self):
         pass
 
     @abstractmethod
-    def delete_job(self, job_id):
+    def delete_job(self, job_id: int):
         pass
-
