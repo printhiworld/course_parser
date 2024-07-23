@@ -17,6 +17,7 @@ class SuperJob(JobAPI):
     url = "https://api.superjob.ru/2.0"
 
     def get_vacancies(self):
+        """показывает вакансии на superjob"""
         vacancies = []
         response = requests.get(f'{self.url}/vacancies', headers=self.headers).json()['objects']
         for i in response:
